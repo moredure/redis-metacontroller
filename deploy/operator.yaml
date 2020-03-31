@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: operator
+  labels:
+    app: operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: operator
+  template:
+    metadata:
+      labels:
+        app: operator
+    spec:
+      imagePullSecrets:
+        - name: dockerhub
+      containers:
+        - name: operator
+          image: mikefaraponov/microredis:operator-v0.1.0
+          imagePullPolicy: Always
+          ports:
+            - name: operator
+              containerPort: 80
+          env:
+            - name: STORAGE_CLASS
+              value: do-block-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: operator
+spec:
+  selector:
+    app: operator
+  ports:
+    - name: operator
+      port: 80
+      protocol: TCP
+
+

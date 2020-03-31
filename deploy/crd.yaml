@@ -1,0 +1,91 @@
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: redises.microredis.com
+spec:
+  group: microredis.com
+  version: v1
+  names:
+    kind: Redis
+    plural: redises
+    singular: redis
+    shortNames:
+      - rds
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      required:
+        - spec
+      properties:
+        spec:
+          required:
+            - maxmemory
+            - maxclients
+            - databases
+            - storage
+            - requirepass
+            - plan_id
+            - user_id
+            - shutdown
+            - config
+            - save
+            - bgsave
+            - bgwriteaof
+          properties:
+            storage:
+              type: string
+              pattern: '^\d+[MmGg]i?$'
+            maxmemory_policy:
+              type: string
+              pattern: '^(volatile-lru|allkeys-lru|volatile-lfu|allkeys-lfu|volatile-random|allkeys-random|volatile-ttl|noeviction)$'
+            maxmemory:
+              type: string
+              pattern: '^\d+[MmGg]$'
+            snapshot:
+              type: string
+            maxclients:
+              type: integer
+              minimum: 1
+              maximum: 1000
+            databases:
+              type: integer
+              minimum: 1
+            requirepass:
+              type: string
+              minLength: 10
+            plan_id:
+              type: string
+              minLength: 35
+            user_id:
+              type: string
+              minLength: 35
+            node_id:
+              type: string
+              minLength: 35
+            instance_id:
+              type: string
+              minLength: 35
+            shutdown:
+              type: string
+              minLength: 10
+            config:
+              type: string
+              minLength: 10
+            save:
+              type: string
+              minLength: 10
+            bgsave:
+              type: string
+              minLength: 10
+            bgwriteaof:
+              type: string
+              minLength: 10
+            rediscommand:
+              type: string
+            redisimage:
+              type: string
+            # - storageClassName
+            # storageClassName:
+            #   type: string
+            #   pattern: '^(InMemory|EmptyDir|Persistent)$'

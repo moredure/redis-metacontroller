@@ -1,0 +1,17 @@
+apiVersion: microredis.com/v1
+kind: Redis
+metadata:
+  name: redis-234736c2-46a2-4c67-a531-9f566005e577
+spec:
+  bgsave: 7bedbfe2-2583-4f5a-9bc4-8f48ee4692d5
+  bgwriteaof: 78d26899-8131-4dd3-bb8d-df5c91fafdc9
+  config: c891fc67-8d9b-4e94-b064-cec11ca0f805
+  databases: 1
+  maxclients: 10
+  maxmemory: 23M
+  plan_id: ffc6b51a-f670-4504-b139-38b5a5aab3d3
+  requirepass: ffc6b51a-f670-4504-b139-38b5a5aab3d3
+  save: b84c2a04-13e3-4536-beff-81679f21852c
+  shutdown: 50c34c8b-99ea-4227-b11d-fdb42d536624
+  storage: 0M
+  user_id: ffc6b51a-f670-4504-b139-38b5a5aab3d3

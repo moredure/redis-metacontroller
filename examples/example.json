@@ -1,0 +1,21 @@
+{
+    "apiVersion": "microredis.com/v1",
+    "kind": "Redis",
+    "metadata": {
+        "name": "redis-5ed564db-96fd-4edf-aff1-5780c7f2ab24"
+    },
+    "spec": {
+        "bgsave": "69da97d0-edbc-4ac3-b79e-f9e0149755bf",
+        "bgwriteaof": "3ff0960e-bb0a-45cd-9d13-10b14ecae42a",
+        "config": "4d4582b8-0685-460c-83f3-6986f025a00b",
+        "databases": 50,
+        "maxclients": 100,
+        "maxmemory": "1G",
+        "plan_id": "3",
+        "requirepass": "79e429dd-2bc6-4720-991b-77477e241cf0",
+        "save": "cc0095d1-8040-4869-a6f0-c5c4009ee49a",
+        "shutdown": "9f7a4ddf-be17-4183-a645-3cc04db19183",
+        "storage": "1Gi",
+        "user_id": "9"
+    }
+}
